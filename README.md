@@ -5,10 +5,11 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|nickname|string|null: false|
-|index|integer||
+|nickname|string|null: false,index:true|
 ### Association
  has_many :groups, through: :groups_users
+ has_many : messages
+ has_many : groups_users
 
 ##　groupsテーブル
 |Column|Type|Options|
@@ -16,6 +17,8 @@
 |name|string|null: false|
 ### Association
 has_many :users, through: :groups_users
+has_many : messages
+has_many : groups_users
 
 ## groups_usersテーブル
 |Column|Type|Options|
@@ -25,15 +28,6 @@ has_many :users, through: :groups_users
 ### Association
 - belongs_to :group
 - belongs_to :user
-
-## tagsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-### Association
-- has_many :posts_tags
-- has_many  :posts,  through:  :posts_tags
-
 
 ## messagesテーブル
 |Column|Type|Options|
