@@ -43,5 +43,5 @@ has_many :users, through: :groups_users
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :post
+- belongs_to :group
 - belongs_to :user
