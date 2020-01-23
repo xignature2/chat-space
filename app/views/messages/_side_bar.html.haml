@@ -1,0 +1,18 @@
+.side-bar
+  .header-left
+    .side-header__box
+      .side-header__box__name
+        あああ
+
+      .side-header__box__icon
+        =link_to "https://www.alc.co.jp/", class: "side-header__btn side-headers__btn--edit" do
+          = icon('fas', 'edit',  class: "side-header__btn--icon")
+
+        =link_to "#", class: "side-header__btn side-headers__btn--cog" do
+          = icon('fas', 'cog',  class: "side-header__btn--icon")
+
+  .left-content
+    .group
+      %p.group__group-name abc
+      %p.group__latest-message おおお
+
