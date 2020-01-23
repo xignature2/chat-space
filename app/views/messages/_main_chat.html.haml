@@ -10,12 +10,12 @@
     
     .header-right__edit-btn
       Edit
-      %a{ href: '/groups/15068/edit' }
+     
 
 
 
   .right-content
-    .message{"data-message_id" => "24296"}
+    .message{"data-message_id": "24296"}
       .message__upper-info
         %p.message__upper-info__talker
           あああ
@@ -24,18 +24,18 @@
 
 
   .bottom-content
-    .bottom-content#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/15439/messages", :enctype => "multipart/form-data", :method => "post"}
-    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-    %input{:name => "authenticity_token", :type => "hidden", :value => "ZwDr0qn/IKBaFMhS/OCVdJdEutt/2XpK5piZgxgcFyfUNxkNSSMuegcp46j9NKodD+n9Wo4EsXnm5y4ffYXNsw=="}/
+    .bottom-content#new_message.new_message{"accept-charset": "UTF-8", action: "/groups/15439/messages", enctype: "multipart/form-data", method: "post"}
+    %input{name: "utf8", type: "hidden", value: "✓"}/
+    %input{name: "authenticity_token", type: "hidden", value: "ZwDr0qn/IKBaFMhS/OCVdJdEutt/2XpK5piZgxgcFyfUNxkNSSMuegcp46j9NKodD+n9Wo4EsXnm5y4ffYXNsw=="}/
 
     .form__input-box
-      %input#message_content.form__input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/  
-      %label.form__input-box__image{:for => "message_image"}
+      %input#message_content.form__input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/  
+      %label.form__input-box__image{for: "message_image"}
         =icon('far', 'image')
         %input#message_image{type: "file"}
         
 
       .form__submit
-        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}/
 
 
