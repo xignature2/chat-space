@@ -1,0 +1,38 @@
+.chat-main
+  .header-right
+    .header-right__left-box
+      %h2.main-header__left-box__current-group 
+        abc
+          
+      .header-right__left-box__ul
+        Member：
+        %li.main-header__left-box__member-list__member あああ
+    
+    .header-right__edit-btn
+      Edit
+     
+
+
+
+  .right-content
+    .message{"data-message_id": "24296"}
+      .message__upper-info
+        %p.message__upper-info__talker
+          あああ
+        %p.message__upper-info__date
+          2020/01/19(Sun) 18:46:10  
+
+
+  .bottom-content
+
+    .form__input-box
+      %input#message_content.form__input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/  
+      %label.form__input-box__image{for: "message_image"}
+        =icon('far', 'image')
+        %input#message_image{type: "file"}
+        
+
+      .form__submit
+        %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}/
+
+
