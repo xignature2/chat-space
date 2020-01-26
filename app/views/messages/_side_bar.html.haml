@@ -5,7 +5,7 @@
         = current_user.name
 
       .side-header__box__icon
-        =link_to "https://www.alc.co.jp/", class: "side-header__btn side-headers__btn--edit" do
+        =link_to new_group_path, class: "side-header__btn side-headers__btn--edit" do
           = icon('fas', 'edit',  class: "side-header__btn--icon")
 
         =link_to edit_user_path(current_user), class: "side-header__btn side-headers__btn--cog" do
@@ -13,7 +13,10 @@
 
 
   .left-content
-    .group
-      %p.group__group-name abc
-      %p.group__latest-message おおお
-
+    -current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
