@@ -2,14 +2,15 @@
   .header-left
     .side-header__box
       .side-header__box__name
-        あああ
+        = current_user.name
 
       .side-header__box__icon
         =link_to "https://www.alc.co.jp/", class: "side-header__btn side-headers__btn--edit" do
           = icon('fas', 'edit',  class: "side-header__btn--icon")
 
-        =link_to "#", class: "side-header__btn side-headers__btn--cog" do
+        =link_to edit_user_path(current_user), class: "side-header__btn side-headers__btn--cog" do
           = icon('fas', 'cog',  class: "side-header__btn--icon")
+
 
   .left-content
     .group
