@@ -6,33 +6,29 @@
           
       .header-right__left-box__ul
         Member：
-        %li.main-header__left-box__member-list__member あああ
+        %li.main-header__left-box__member-list__member
+          - @group.users.each do |user|
+            = user.name
     
     .header-right__edit-btn
-      Edit
+      = link_to "Edit", edit_group_path(@group)
      
 
 
 
   .right-content
-    .message{"data-message_id": "24296"}
-      .message__upper-info
-        %p.message__upper-info__talker
-          あああ
-        %p.message__upper-info__date
-          2020/01/19(Sun) 18:46:10  
+  = render @messages
+     
 
 
   .bottom-content
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__input-box
 
-    .form__input-box
-      %input#message_content.form__input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/  
-      %label.form__input-box__image{for: "message_image"}
-        =icon('far', 'image')
-        %input#message_image{type: "file"}
-        
-
-      .form__submit
-        %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}/
+        = f.label :image, class: 'form__input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
 
 
