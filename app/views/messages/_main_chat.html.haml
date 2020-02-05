@@ -1,7 +1,7 @@
 .chat-main
   .header-right
     .header-right__left-box
-      %h2.main-header__left-box__current-group 
+      %h2.header-right__left-box__current-group 
         abc
           
       .header-right__left-box__ul
@@ -10,25 +10,24 @@
           - @group.users.each do |user|
             = user.name
     
-    .header-right__edit-btn
-      = link_to "Edit", edit_group_path(@group)
+    .header-right__edit
+      = link_to "Edit", edit_group_path(@group), class: "header-right__edit__btn"
      
 
 
 
   .right-content
-  = render @messages
+    = render @messages
      
 
 
   .bottom-content
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
       .form__input-box
-
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         = f.label :image, class: 'form__input-box__image' do
-          = icon('fas', 'image', class: 'icon')
+          = icon('far', 'image', class: 'icon')
           = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+      = f.submit 'Send', class: 'form__submit'
 
 
