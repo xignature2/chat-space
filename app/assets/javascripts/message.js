@@ -13,7 +13,6 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      console.log(messages)
       if (messages.length !== 0) {
       //追加するHTMLの入れ物を作る
       var insertHTML = '';
@@ -27,61 +26,70 @@ $(function(){
       }
     })
     .fail(function() {
-      console.log('error');
+      console.log('alert');
     });
   };
 
   var buildHTML = function(message) {
     if (message.content && message.image) {
       //data-idが反映されるようにしている
-      var html = `<div class="message" data-message-id=` + message.id + `>` +
-        `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="upper-message__date">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="lower-message">` +
-          `<p class="lower-message__content">` +
-            message.content +
-          `</p>` +
-          `<img src="` + message.image + `" class="lower-message__image" >` +
-        `</div>` +
-      `</div>`
+      var html =
+   `<div class="message" data-message-id=${message.id}>
+      <div class="upper-message">
+        <div class="upper-message__user-name">
+          ${message.user_name}
+        </div>
+        <div class="upper-message__date">
+          ${message.created_at}
+        </div>
+      </div>
+      <div class="lower-message">
+        <p class="lower-message__content">
+          ${message.content}
+        </p>
+      </div>
+      <img src=${message.image} >
+        <p class="lower-message__image">
+        </div>
+      </div>`
+
     } else if (message.content) {
       //同様に、data-idが反映されるようにしている
-      var html = `<div class="message" data-message-id=` + message.id + `>` +
-        `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="upper-message__date">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="lower-message">` +
-          `<p class="lower-message__content">` +
-            message.content +
-          `</p>` +
-        `</div>` +
-      `</div>`
+      var html =
+      `<div class="message" data-message-id=${message.id}>
+      <div class="upper-message">
+      <div class="upper-message__user-name">
+      ${message.user_name}
+      </div>
+      <div class="upper-message__date">
+      ${message.created_at}
+      </div>
+      </div>
+      <div class="lower-message">
+      <p class="lower-message__content">
+      ${message.content}
+      </p>
+      </div>
+      </div>`
+
     } else if (message.image) {
       //同様に、data-idが反映されるようにしている
-      var html = `<div class="message" data-message-id=` + message.id + `>` +
-        `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="upper-message__date">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="lower-message">` +
-          `<img src="` + message.image + `" class="lower-message__image" >` +
-        `</div>` +
-      `</div>`
+      var html =
+   `  <div class="message" data-message-id=${message.id}>
+       <div class="upper-message">
+        <div class="upper-message__user-name">
+          ${message.user_name}
+        </div>
+        <div class="upper-message__date">
+          ${message.created_at}
+        </div>
+      </div>
+      <div class="lower-message">
+        <p class="lower-message__image">
+      <img src=${message.image} >
+        </p>
+        </div>
+      </div>`
     };
     return html;
   };
