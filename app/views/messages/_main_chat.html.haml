@@ -2,8 +2,8 @@
   .header-right
     .header-right__left-box
       %h2.header-right__left-box__current-group 
-        abc
-          
+
+
       .header-right__left-box__ul
         Member：
         %li.main-header__left-box__member-list__member
@@ -17,7 +17,7 @@
 
 
   .right-content
-    = render @messages
+    = render @messages , class: 'right-content__message'
      
 
 
