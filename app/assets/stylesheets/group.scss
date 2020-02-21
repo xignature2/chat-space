@@ -85,6 +85,8 @@ li {
   line-height: 50px;
   font-size: 14px;
   border-bottom: 1px solid #ddd;
+  width: 100%;
+  
   &:after {
     content: "";
     clear: both;
@@ -94,7 +96,8 @@ li {
     float: left;
   }
   &__btn {
-    display: inline-block;
+    // display: inline-block;
+    float: right;
     cursor: pointer;
     &--add {
       color: #38aef0;
